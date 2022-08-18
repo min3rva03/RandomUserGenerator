@@ -18,19 +18,6 @@ Esta clase tambien contiene una función llamada *sendRequestWithClosure* que no
 
 -    **Model** 
                 *RandomUsrGeneratorModel* Contiene el modelo de datos con los campos que devuelve el API y que la aplicacion desea mostrar , estos datos son: nombre, genero, edad, email y telefono, asi como latitud ylongitud que son necesarios para conocer la ubicacion.
-                
--    **View**
-- *IssLocatorController* Mediante la implementación de GoogleMaps nos permitirá conocer la posición de la ISS en el mapa.
-                        para hacer uso del mapa esta clase declara una constante llamada camera que recibe tres valores : latitud , longitud y zoom  que permite conocer la posición en el mapa y una constante mapView que es la vista sobre la cuál se muestra el mapa.
-                        Implementa un timer que cada 10 segundos solicita al ViewModel se consulte la ubicación, esto mediante
-                        
-- *self.issLocatorVM.requestLocation()*
-                        Tambien se implementa un marcador que permite conocer la ubicación de la ISS de manerá visual.
-                        Adicional a esto cabe mencionar que al final de la clase se observa el método *rightBarButtonTapped* que realiza la navegación entre una pantalla (la del mapa) y la pantalla del listado de ubicaciones (botón derecho del TabBar).
-                        
-- *IssLocatorTableController* Esta clase muestra el registro de las ultimas ubicaciones. Implementa los métodos del delegado *UITableViewDelegate*  y *UITableViewDataSource* para obtener el numero de secciones y celdas que va a mostrar  , asi como la información que mostrará en cada una.
-                  Para obtener el numero de registros consulta al IssLocatorViewModel en su método *getnumberOfRows()* que internamente consulta el método *getUsrDefaults()* para conocer el número de registros almacenados en User Defaults.
-                  Para conocer y mostrar la información de las ultimas ubicaciones se consulta nuevamente el ViewModel en su método getCellForRow que consulta los registros de user Defaults y permite mostrar la latitud y longitud de las ubicaciones.
 -    **ViewModel**
                 *RandomUsrViewModel* Es el intermediario entre la vista y el modelo.
                 Contiene la implementación de los métodos :
